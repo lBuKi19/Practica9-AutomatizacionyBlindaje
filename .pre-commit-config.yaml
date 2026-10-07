@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: 1. Formatter - Black
+        entry: python -m black --check .
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: ruff
+        name: 2. Linter - Ruff
+        entry: python -m ruff check .
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: pytest
+        name: 3. Pruebas unitarias - Pytest
+        entry: python -m pytest -v
+        language: system
+        pass_filenames: false
+        always_run: true
